@@ -74,7 +74,7 @@ export class AppComponent {
     //this.estractWord();
   }
 
-
+ //jkjk
   compiler() {
     this.token = [];
     this.codFonte += "\n";
