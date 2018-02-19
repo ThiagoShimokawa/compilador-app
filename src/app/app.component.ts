@@ -11,7 +11,7 @@ import { Token } from './token';
 export class AppComponent {
   title = 'app';
 
-  IdIdentificador: number = 0;
+  IdIdentificador: number = 0; // ID dos identificadores
 
   reservadas = [
     { nome: "(", funcao: "Abre parenteses" },
@@ -42,18 +42,31 @@ export class AppComponent {
     { nome: "do", funcao: "Codicional faça" },
     { nome: "if else", funcao: "Codicional Se se não" },
     { nome: ";", funcao: "Terminador" },
-    { nome: "", funcao: "" },
-    { nome: "", funcao: "" },
-    { nome: "", funcao: "" },
-    { nome: "", funcao: "" },
-    { nome: "", funcao: "" },
-    { nome: "", funcao: "" },
-    { nome: "", funcao: "" },
-    { nome: "", funcao: "" },
-    { nome: "", funcao: "" },
-    { nome: "", funcao: "" },
-
-
+    { nome: "alert", funcao: "Abre uma caixa de alerta" },
+    { nome: "break", funcao: "parada" },
+    { nome: "case", funcao: "Caso" },
+    { nome: "class", funcao: "Classe" },
+    { nome: "const", funcao: "Constatante" },
+    { nome: "continue", funcao: "Continue a execução" },
+    { nome: "default", funcao: "Escolha padrão" },
+    { nome: "delete", funcao: "Apagar" },
+    { nome: "function", funcao: "Função" },
+    { nome: "import", funcao: "Importação" },
+    { nome: "new", funcao: "novo objeto" },
+    { nome: "this", funcao: "instancia atual" },
+    { nome: "void", funcao: "Valor ou retorno Vazio" },
+    { nome: "try", funcao: "Testa um bloco" },
+    { nome: "catch", funcao: "Trata uma exceção" },
+    { nome: "finally", funcao: "Treta uma exceção sempre é executada" },
+    { nome: "debugger", funcao: "Testa um bloco de código" },
+    { nome: "switch", funcao: "Testa uma expressão" },
+    { nome: "instanceof", funcao: "Testa se dois objetos são do mesmo tipo" },
+    { nome: "export", funcao: "É usado para esportar funções, objetos ou valores primitivos." },
+    { nome: "throw", funcao: "Lança uma exceção definida pelo usuario" },
+    { nome: "super", funcao: "É usado para acessar o objeto parente de um objeto" },
+    { nome: "with", funcao: "extende a cadeia de escopo de uma declaração" },
+    { nome: "yield", funcao: "é usada para passar a resumir um gerador function" },
+    { nome: "in", funcao: "Retorna true se a propriedade especificada estinver no objeto" }
   ]
 
   //  Entrada do código fonte.
