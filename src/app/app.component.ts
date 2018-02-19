@@ -11,7 +11,7 @@ import { Token } from './token';
 export class AppComponent {
   title = 'app';
 
-  name: string = '';
+  IdIdentificador: number = 0;
 
   reservadas = [
     { nome: "(", funcao: "Abre parenteses" },
@@ -56,6 +56,7 @@ export class AppComponent {
 
   ]
 
+  //  Entrada do código fonte.
   codFonte: string =
   ` var trabalho;
 
@@ -66,8 +67,7 @@ export class AppComponent {
     else
         alert('Se deu MALLLL!!!')`;
 
-
-  token: Token[] = [];
+  token: Token[] = [];  //  Array com os tokens estraido do código fonte.
 
 
   ngOnInit() {
@@ -155,6 +155,8 @@ export class AppComponent {
       }
       coluna++; //  Incrementa a coluna.
     }
+
+    this.IdIdentificador = 0;
   }
 
   pesquisaReservada(palavra) {
@@ -162,10 +164,24 @@ export class AppComponent {
       return value.nome == palavra
     })
 
-    console.log(v)
+    console.log(v);
+
     if (v.length > 0)
       return v[0].funcao
-    return "Identificador"
+
+    return this.pesquisaIdentificador(palavra);
+  }
+
+  pesquisaIdentificador(identificador){
+    let v: any = this.token.filter(value => {
+      return value.token == identificador
+    })
+
+    if(v.length > 0)
+      return v[0].funcao;
+
+      this.IdIdentificador++
+    return "Identificador " + this.IdIdentificador;
   }
 
 }
