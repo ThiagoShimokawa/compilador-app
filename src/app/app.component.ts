@@ -109,7 +109,7 @@ export class AppComponent {
       //  Incrementa a linha e zera a coluna.
       if (this.codFonte.charAt(i) == "\n") {
         linha++;
-        coluna = 0;
+        coluna = -1;
       }
 
       if (aspas) { // Captura os caracteres até que feche as aspas.
@@ -179,22 +179,34 @@ export class AppComponent {
 
     console.log(v);
 
+    //  Verifica se é uma palavra reservada.
     if (v.length > 0)
       return v[0].funcao
 
+    //  Verifica se é um numero.
+    if (this.isNumber(palavra))
+      return "Número";
+
+    //  É um identificador!!
     return this.pesquisaIdentificador(palavra);
   }
 
-  pesquisaIdentificador(identificador){
+  pesquisaIdentificador(identificador) {
     let v: any = this.token.filter(value => {
       return value.token == identificador
     })
 
-    if(v.length > 0)
+    //  Verifica se o identificador já foi utilizado antes.
+    if (v.length > 0)
       return v[0].funcao;
 
-      this.IdIdentificador++
+    //  Caso não tenha sido usado atribui um novo ID ou identificador
+    this.IdIdentificador++
     return "Identificador " + this.IdIdentificador;
   }
+
+  isNumber(n) {
+    return !isNaN(parseFloat(n)) && isFinite(n);
+}
 
 }
