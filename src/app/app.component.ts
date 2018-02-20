@@ -20,6 +20,7 @@ export class AppComponent {
     { nome: "}", funcao: "Fecha chaves" },
     { nome: "'", funcao: "Aspas simples" },
     { nome: '"', funcao: "Aspas duplas" },
+    { nome: "=", funcao: "Atribuição" },
     { nome: "==", funcao: "igual" },
     { nome: "!=", funcao: "Não igual" },
     { nome: "===", funcao: "Estritamente igual" },
@@ -35,6 +36,7 @@ export class AppComponent {
     { nome: "+", funcao: "Adição" },
     { nome: "**", funcao: "Operador de exponenciação" },
     { nome: "var", funcao: "Define variavel" },
+    { nome: "let", funcao: "Declara variaveis limitando o escopo" },
     { nome: "if", funcao: "Codicional Se" },
     { nome: "else", funcao: "Condicional Se não" },
     { nome: "for", funcao: "Laço de repetição" },
@@ -46,7 +48,7 @@ export class AppComponent {
     { nome: "break", funcao: "parada" },
     { nome: "case", funcao: "Caso" },
     { nome: "class", funcao: "Classe" },
-    { nome: "const", funcao: "Constatante" },
+    { nome: "const", funcao: "Define uma Constatante" },
     { nome: "continue", funcao: "Continue a execução" },
     { nome: "default", funcao: "Escolha padrão" },
     { nome: "delete", funcao: "Apagar" },
@@ -71,14 +73,7 @@ export class AppComponent {
 
   //  Entrada do código fonte.
   codFonte: string =
-  ` var trabalho;
-
-    if ( trabalho == 'feito' ){
-        alert('Passou')
-    }
-
-    else
-        alert('Se deu MALLLL!!!')`;
+  ` var trabalho;\n\n if ( trabalho == 'feito' ) {\n    alert('Passou')\n }\n\n else\n    alert('Se deu MALLLL!!!')`;
 
   token: Token[] = [];  //  Array com os tokens estraido do código fonte.
 
@@ -86,7 +81,6 @@ export class AppComponent {
   ngOnInit() {
     //this.estractWord();
   }
-
 
   compiler() {
     this.token = [];

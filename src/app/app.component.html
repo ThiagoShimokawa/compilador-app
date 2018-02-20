@@ -11,8 +11,10 @@
       <textarea class="form-control" rows="20" cols="" id="comment" [(ngModel)] = "codFonte" > </textarea>
 
       <h5>Quantidade de caracteres: {{codFonte.length}}</h5>
+
       <!--Importar arquivo fonte externo....................................-->
       <input type="file" multiple onchange="angular.element(this).scope().fileNameChanged(this)">
+      
       <div class=text-right>
         <button type="button" class="btn btn-success" (click)="compiler()">Analisar Código</button>
       </div>
@@ -48,3 +50,4 @@
     </div>
   </div>
 </div>
+<p>{{leitorDeCSV}}</p>
