@@ -84,7 +84,7 @@ export class AppComponent {
 
   compiler() {
     this.token = [];
-    this.codFonte += "\n";
+    //this.codFonte += "\n";
     this.estractWord();
   }
 
@@ -100,10 +100,12 @@ export class AppComponent {
     //  Percorre as linhas do código fonte.
     for (let i = 0; i <= qtdCaracters; i++) {
 
+      console.log("QtdCaracter: " + qtdCaracters)
       //  Incrementa a linha e zera a coluna.
       if (this.codFonte.charAt(i) == "\n") {
         linha++;
         coluna = -1;
+        qtdCaracters++; //  Adiciona as quebra de linha 
       }
 
       if (aspas) { // Captura os caracteres até que feche as aspas.
@@ -117,6 +119,7 @@ export class AppComponent {
           palavra = "";
           fixColuna = 0;
           i++;
+          coluna++;
         }
 
       }
@@ -161,6 +164,13 @@ export class AppComponent {
         }
       }
       coluna++; //  Incrementa a coluna.
+    }
+
+    if (palavra != "") {
+      this.token.push(new Token(palavra, this.pesquisaReservada(palavra), linha + ", " + fixColuna))
+
+      palavra = "";
+      fixColuna = 0;
     }
 
     this.IdIdentificador = 0;
